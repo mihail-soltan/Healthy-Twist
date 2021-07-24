@@ -1,0 +1,9 @@
+.navbar{
+    background-color: darkgreen;
+}
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: grey;
+}
