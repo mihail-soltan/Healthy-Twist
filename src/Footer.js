@@ -13,7 +13,7 @@ const styles ={
                 <Card.Body>
                     <Card.Text style={{color: "white", fontSize: "12px"}}>
                         Sherine | Mihail | Natalia | all rights reserved © 2021
-                        <img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-circle.png" style={{marginLeft: "3vw"}}/>
+                        <img alt="instagram" src="https://img.icons8.com/ios-glyphs/30/000000/instagram-circle.png" style={{marginLeft: "3vw"}}/>
                     </Card.Text>
                     
                 </Card.Body>
