@@ -27,7 +27,13 @@
 .App-link {
   color: #61dafb;
 }
-
+.recipes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 50px;
+  
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
