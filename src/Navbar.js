@@ -3,8 +3,9 @@ import React, {useState} from 'react'
 import { BoxArrowInRight, List } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import "./Navbar.css";
-import Offcanvas from 'react-bootstrap/Offcanvas'
-import Button from 'react-bootstrap/Button'
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
+import ChangeMode from './ChangeMode';
 
 export default function Navbar() {
     const [show, setShow] = useState(false);
@@ -33,7 +34,7 @@ export default function Navbar() {
         <br />
         </div>
         </Offcanvas.Body>
-        
+        <ChangeMode />
       </Offcanvas>
      
                     </Nav.Link>
