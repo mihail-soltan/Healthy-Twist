@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 0;
 }
 
 .App-logo {
@@ -34,6 +35,26 @@
   margin: 50px;
   
 }
+.chef-article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+}
+.chef-story {
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+}
+p {
+  margin: 10px;
+}
+.article-text {
+  text-align: left;
+  max-width: 700px;
+  
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
