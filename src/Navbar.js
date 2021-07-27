@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Navbar.css";
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
     const [show, setShow] = useState(false);
@@ -40,7 +41,7 @@ export default function Navbar() {
                 </Nav.Item>
               
                 <Nav.Item>
-                    <Nav.Link className="nav-link" >Searchbar here</Nav.Link>
+                    <Nav.Link className="nav-link" ><SearchBar/></Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
