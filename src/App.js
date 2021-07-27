@@ -12,8 +12,10 @@ function App() {
   const [story, setStory] = useState('')
   const [chefPic, setChefPic] = useState('')
   const [recipes, setRecipes] = useState([])
-  useEffect(() => {
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`
     const recipesAPI = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=post`
     fetch(contentful)
@@ -25,27 +27,29 @@ function App() {
         setChefPic(`${result.includes.Asset[0].fields.file.url}?w=500&h=500`)
         setStory(result.items[0].fields.chefStoryText)
         console.log(result)
+        setIsLoading(false)
       }
             
         )
   fetch(recipesAPI)
           .then((res) => res.json())
           .then((res) => setRecipes(res.items));
-        
-    
-      
-
-
-
+  
   }, [])
+
+
   return (
     <div className="App">
+      {isLoading ? <h2>blabla</h2> : 
+      (
+      <div>
       <Navbar />
       <RecipeCarousel recipes={recipes}/>
       <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story}/>
       <Footer />
-
-
+      </div>)
+      }
+      
     </div>
   );
 }
