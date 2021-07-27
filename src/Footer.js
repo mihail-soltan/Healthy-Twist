@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 export default function Footer() {
 
 const styles ={
-    position: "relative",
+    position: "absolute",
     width: "100%",
     margin: 0,
     bottom: 0,
