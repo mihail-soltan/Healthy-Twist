@@ -8,9 +8,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import ChangeMode from './ChangeMode';
 
-export default function Navbar() {
+export default function Navbar({ recipes, search, setSearch }) {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -42,7 +41,7 @@ export default function Navbar() {
             </Nav.Item>
 
             <Nav.Item>
-                <Nav.Link className="nav-link" ><SearchBar /></Nav.Link>
+                <Nav.Link className="nav-link" ><SearchBar search={search} setSearch={setSearch}/></Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
