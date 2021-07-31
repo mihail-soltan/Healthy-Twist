@@ -22,11 +22,11 @@ console.log(recipes)
                         <Card.Text>{item.fields.userStroyAboutRecepie}
                         </Card.Text>
 
-                        <Router>
+                       
                         <Link to = {`/recipe/${item.sys.id}`} >
                         <Button variant="success">Go somewhere</Button>
                         </Link>
-                        </Router>
+                       
                     </Card.Body>
                 </Card>
                     )}

@@ -9,8 +9,8 @@ import Row from 'react-bootstrap/Row'
 import Image from 'react-bootstrap/Image'
 
 const RecipePage =()=>{
- const {recipeTitle}= useParams();
-  const [recipes, setRecipes] = useState([])
+ const { recipeTitle }= useParams();
+  const [recipes, setRecipes]  = useState([])
   const [isLoading,setisLoading] =  useState(true)
 console.log(recipeTitle)
   useEffect(()=>{

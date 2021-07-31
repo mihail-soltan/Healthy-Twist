@@ -38,22 +38,20 @@ function App() {
   }, [])
   return (
     <div className="App">
-      
-       <Router>
+      <Navbar />
+      <Router>
       <Switch>
         <Route exact path="/">
-          <Navbar />
-      <RecipeCarousel recipes={recipes}/>
-      <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story}/>
+          <RecipeCarousel recipes={recipes}/>
+          <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story}/>
         </Route>
-          <Route path="/recipe/:recipeTitle"  >
-            <Navbar />
-            <RecipePage />        
-          </Route>
+        <Route path="/recipe/:recipeTitle">
+          <RecipePage />        
+        </Route>
       </Switch>  
     </Router>
      <Footer />
-    </div>
+     </div>
   );
 }
 // 
