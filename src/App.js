@@ -5,6 +5,10 @@ import RecipeCarousel from './RecipeCarousel';
 import Chef from "./Chef"
 import { useEffect, useState } from "react"
 
+import { Switch, Route } from 'react-router-dom'
+import Cuisine from './Cuisine'
+import List from './List'
+
 function App() {
   const [chefData, setChefData] = useState([])
   const [storyTitle, setStoryTitle] = useState('')
@@ -35,10 +39,19 @@ function App() {
       .then((res) => res.json())
       .then((res) => setRecipes(res.items));
 
+
+
+
+
+      )
+    fetch(recipesAPI)
+      .then((res) => res.json())
+      .then((res) => setRecipes(res.items));
+
   }, [])
 
 
-  const filteredStory =
+  const filteredRecipes =
   recipes.length === 0
       ? recipes
       : recipes.filter((post) => {
@@ -52,12 +65,21 @@ function App() {
 
   return (
     <div className="App">
+
       {isLoading ? <h2>blabla</h2> :
         (
           <div>
             <Navbar recipes={recipes} search={search} setSearch={setSearch} />
-            <RecipeCarousel recipes={filteredStory} />
+            <Switch>
+            <Route exact path="/">
+            <Cuisine />
+            <RecipeCarousel recipes={filteredRecipes} />
             <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story} />
+            </Route>
+            <Route exact path='/recipes'>
+            <List recipes={recipes} />
+            </Route>
+            </Switch>
             <Footer />
           </div>)
       }
