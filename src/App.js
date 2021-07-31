@@ -55,7 +55,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
       <Navbar />
       <Router>
       <Switch>
@@ -64,25 +63,12 @@ function App() {
           <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story}/>
         </Route>
         <Route path="/recipe/:recipeTitle">
-          <RecipePage />        
+          <RecipePage isLoading ={isLoading} recipes={recipes}/>        
         </Route>
       </Switch>  
     </Router>
      <Footer />
      </div>
-=======
-      {isLoading ? <h2>blabla</h2> :
-        (
-          <div>
-            <Navbar recipes={recipes} search={search} setSearch={setSearch} />
-            <RecipeCarousel recipes={filteredStory} />
-            <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story} />
-            <Footer />
-          </div>)
-      }
-
-    </div>
->>>>>>> test
   );
 }
 // 
