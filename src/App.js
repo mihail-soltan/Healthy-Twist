@@ -4,6 +4,8 @@ import Footer from "./Footer";
 import RecipeCarousel from './RecipeCarousel';
 import Chef from "./Chef"
 import { useEffect, useState } from "react"
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import RecipePage from './RecipePage'
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
   const [story, setStory] = useState('')
   const [chefPic, setChefPic] = useState('')
   const [recipes, setRecipes] = useState([])
+  const [isLoading, setisLoading] = useState(true)
   useEffect(() => {
 
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`
@@ -30,24 +33,29 @@ function App() {
         )
   fetch(recipesAPI)
           .then((res) => res.json())
-          .then((res) => setRecipes(res.items));
-        
-    
-      
-
-
-
+          .then((res) => {setRecipes(res.items)
+         setisLoading(false) });
   }, [])
   return (
     <div className="App">
-      <Navbar />
+      
+       <Router>
+      <Switch>
+        <Route exact path="/">
+          <Navbar />
       <RecipeCarousel recipes={recipes}/>
       <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story}/>
-      <Footer />
-
-
+        </Route>
+          <Route path="/recipe/:recipeTitle"  >
+            <Navbar />
+            <RecipePage />        
+          </Route>
+      </Switch>  
+    </Router>
+     <Footer />
     </div>
   );
 }
+// 
 
 export default App;

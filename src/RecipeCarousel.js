@@ -2,13 +2,14 @@ import Carousel from "react-bootstrap/Carousel"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import { useState } from "react";
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+
 export default function RecipeCarousel({recipes}) {
     const [index, setIndex] = useState(0);
-
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-
+console.log(recipes)
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} variant="dark">
             <Carousel.Item>
@@ -17,10 +18,15 @@ export default function RecipeCarousel({recipes}) {
                 <Card style={{ width: '20em' }}>
                     <Card.Img variant="top" src="https://www.thewholesomedish.com/wp-content/uploads/2019/06/The-Best-Classic-Tacos-550.jpg" />
                     <Card.Body>
-                        <Card.Title>{item.fields.title}</Card.Title>
+                        <Card.Title>{item.fields.title}</Card.Title> 
                         <Card.Text>{item.fields.userStroyAboutRecepie}
                         </Card.Text>
+
+                        <Router>
+                        <Link to = {`/recipe/${item.sys.id}`} >
                         <Button variant="success">Go somewhere</Button>
+                        </Link>
+                        </Router>
                     </Card.Body>
                 </Card>
                     )}
