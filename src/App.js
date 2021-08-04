@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import RecipeCarousel from './RecipeCarousel';
 import Chef from "./Chef"
 import { useEffect, useState } from "react"
+import TestFetch from "./TestFetch"
 
 function App() {
   const [chefData, setChefData] = useState([])
@@ -39,23 +40,24 @@ function App() {
 
 
   const filteredStory =
-  recipes.length === 0
+    recipes.length === 0
       ? recipes
       : recipes.filter((post) => {
-        const index = post.fields.title.toLowerCase() 
-        + post.fields.userStroyAboutRecepie.toLowerCase()
-       // console.log(index)
-        return index.includes(search.toLowerCase()) 
+        const index = post.fields.title.toLowerCase()
+          + post.fields.userStroyAboutRecepie.toLowerCase()
+        // console.log(index)
+        return index.includes(search.toLowerCase())
       }
-         
-        );
+
+      );
 
   return (
     <div className="App">
       {isLoading ? <h2>blabla</h2> :
         (
           <div>
-            <Navbar recipes={recipes} search={search} setSearch={setSearch} />
+            <Navbar />
+            <TestFetch />
             <RecipeCarousel recipes={filteredStory} />
             <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story} />
             <Footer />

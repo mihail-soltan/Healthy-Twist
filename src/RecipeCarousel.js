@@ -9,6 +9,8 @@ export default function RecipeCarousel({recipes}) {
         setIndex(selectedIndex);
     };
 
+   
+
     return (
         <Carousel activeIndex={index} onSelect={handleSelect} variant="dark">
             <Carousel.Item>
