@@ -1,0 +1,10 @@
+h2.accordian-header::after {
+  color: darkgreen !important;
+  background-color: ghostwhite;
+}
+h2 {
+  display: block;
+  text-align: center;
+}
+
+/* .accordian-header  */
