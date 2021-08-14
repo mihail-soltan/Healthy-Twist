@@ -9,6 +9,8 @@ import RecipePage from "./RecipePage";
 import Cuisine from "./Cuisine";
 import List from "./List";
 import TestFetch from "./TestFetch";
+import Login from "./Login";
+import Signup from "./Signup"
 
 function App() {
   const [chefData, setChefData] = useState([]);
@@ -56,7 +58,7 @@ function App() {
         <h2>blabla</h2>
       ) : (
         <div>
-          <Navbar recipes={recipes} search={search} setSearch={setSearch} />
+          {/*<Navbar recipes={recipes} search={search} setSearch={setSearch} />*/}
           <Switch>
             <Route exact path="/">
               <Cuisine />
@@ -72,11 +74,17 @@ function App() {
             <Route path="/recipe/:recipeTitle">
               <RecipePage isLoading={isLoading} recipes={recipes} />
             </Route>
-            <Route exact path="/recipes">
+            <Route path="/recipes">
               <List recipes={recipes} />
             </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
           </Switch>
-          <Footer />
+         {/* <Footer />*/}
         </div>
       )}
     </div>
