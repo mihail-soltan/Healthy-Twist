@@ -1,7 +1,7 @@
 .navbar{
     background-color: darkgreen;
 }
-.nav-link {
+.nav-link, .nav-link:visited, .nav-link:active {
     color: white;
 }
 .nav-link:hover {

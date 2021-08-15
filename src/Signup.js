@@ -12,7 +12,7 @@ export default function Login() {
     return (
         <div>
             <Container >
-                <Row className="g-0">
+                <Row className="row g-0">
                     <Col className="login" >
                         <Form className="login-form" >
                             <Form.Label style={{fontSize: "25px", textAlign: "center"}}>Sign Up to join Healthy Twist community!</Form.Label>

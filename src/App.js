@@ -58,7 +58,7 @@ function App() {
         <h2>blabla</h2>
       ) : (
         <div>
-          {/*<Navbar recipes={recipes} search={search} setSearch={setSearch} />*/}
+          <Navbar recipes={recipes} search={search} setSearch={setSearch} />
           <Switch>
             <Route exact path="/">
               <Cuisine />
@@ -84,7 +84,7 @@ function App() {
               <Signup />
             </Route>
           </Switch>
-         {/* <Footer />*/}
+         <Footer />
         </div>
       )}
     </div>

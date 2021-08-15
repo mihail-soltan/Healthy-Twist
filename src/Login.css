@@ -11,8 +11,7 @@
     height: 80vh;
 }
 .login-form, .submit-btn{
-    width: 30vw;
-   
+    width: 30vw; 
 }
 .submit-btn{
     border: none;
@@ -32,3 +31,15 @@
 .signup-link:hover{
     color: #e2af9e;
 }
+
+@media only screen and (max-width: 768px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+    }
+  }

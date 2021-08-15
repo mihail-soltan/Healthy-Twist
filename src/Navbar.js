@@ -18,34 +18,27 @@ export default function Navbar({ recipes, search, setSearch }) {
             <Nav.Item className="hamburgerMenu">
                 <Nav.Link className="nav-link">
                     <List className="m-2" size={30} onClick={handleShow} />
-
                     <Offcanvas show={show} onHide={handleClose}
                         bg="dark">
-
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title>Welcome</Offcanvas.Title>
-
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <div className="d-grid gap-2">
                                 <Button variant="secondary" size="sm">Most Popular</Button>
-
                                 <Button variant="secondary" size="sm">Holiday Special</Button>
                                 <br />
                             </div>
                         </Offcanvas.Body>
                         <ChangeMode />
                     </Offcanvas>
-
                 </Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
                 <Nav.Link className="nav-link" ><SearchBar search={search} setSearch={setSearch}/></Nav.Link>
             </Nav.Item>
-
             <Nav.Item>
-                <Nav.Link className="nav-link">
+                <Nav.Link className="nav-link" href="/login">
                     Sign In
                     <BoxArrowInRight size={25} />
                 </Nav.Link>
