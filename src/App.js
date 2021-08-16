@@ -14,10 +14,12 @@ function App() {
   const [story, setStory] = useState('')
   const [chefPic, setChefPic] = useState('')
   const [recipes, setRecipes] = useState([])
+  const [cuisine, setCuisine] = useState([])
   useEffect(() => {
 
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`
-    const recipesAPI = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=post`
+    const recipesAPI = `https://healthy-twist.herokuapp.com/posts`
+    const cuisineAPI = `https://healthy-twist.herokuapp.com/cuisines`
     fetch(contentful)
       .then((res) => res.json())
       .then((result) => {
@@ -26,15 +28,28 @@ function App() {
         setStoryTitle(result.items[0].fields.chefStoryTitle)
         setChefPic(`${result.includes.Asset[0].fields.file.url}?w=500&h=500`)
         setStory(result.items[0].fields.chefStoryText)
-        console.log(result)
+        // console.log(result)
       }
 
       )
     fetch(recipesAPI)
       .then((res) => res.json())
-      .then((res) => setRecipes(res.items));
-
-
+      .then((res) => {setRecipes(res)
+        // console.log(res)
+        // setRecipePics(res)
+        // setRecipePic(res[12].Picture.url)
+        // console.log(res[12].Picture.url)
+        // console.log(recipePics)
+        // console.log('hello')
+        console.log(res[0].cuisine.name)
+      });
+      console.log(recipes)
+    fetch(cuisineAPI)
+      .then((res) => res.json())
+      .then((res) => {setCuisine(res)
+      
+        console.log(res)
+      })
 
 
 
@@ -45,11 +60,11 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Cuisine />
+          <Cuisine recipes={recipes} cuisine={cuisine}/>
           <RecipeCarousel recipes={recipes} />
           <Chef chefData={chefData} storyTitle={storyTitle} chefPic={chefPic} story={story} />
         </Route>
-        <Route exact path='/recipes'>
+        <Route  path='/recipes/:cuisine'>
           <List recipes={recipes} />
         </Route>
       </Switch>
