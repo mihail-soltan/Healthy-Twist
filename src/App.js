@@ -16,11 +16,13 @@ function App() {
   const [chefPic, setChefPic] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
+  const [cuisine, setCuisine] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`;
-    const recipesAPI = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=post`;
+    const recipesAPI = `https://healthy-twist.herokuapp.com/posts`;
+    const cuisineAPI = `https://healthy-twist.herokuapp.com/cuisines`;
+
     fetch(contentful)
       .then((res) => res.json())
       .then((result) => {
@@ -28,25 +30,33 @@ function App() {
         setStoryTitle(result.items[0].fields.chefStoryTitle);
         setChefPic(`${result.includes.Asset[0].fields.file.url}?w=500&h=500`);
         setStory(result.items[0].fields.chefStoryText);
-        console.log(result);
       });
+
     fetch(recipesAPI)
       .then((res) => res.json())
       .then((res) => {
-        setRecipes(res.items);
-        setIsLoading(!isLoading);
+        setRecipes(res);
+        console.log(res[0].cuisine.name);
+      });
+    console.log(recipes);
+    fetch(cuisineAPI)
+      .then((res) => res.json())
+      .then((res) => {
+        setCuisine(res);
+        setIsLoading(false);
+
+        console.log(res);
       });
   }, []);
-
   const filteredRecipes =
     recipes.length === 0
       ? recipes
       : recipes.filter((post) => {
-          const index =
-            post.fields.title.toLowerCase() +
-            post.fields.userStroyAboutRecepie.toLowerCase();
+          const index = post.Title.toLowerCase();
+          // post.fields.userStroyAboutRecepie.toLowerCase();
           // console.log(index)
           return index.includes(search.toLowerCase());
+          console.log(post.Title);
         });
 
   return (
@@ -58,8 +68,8 @@ function App() {
           <Navbar recipes={recipes} search={search} setSearch={setSearch} />
           <Switch>
             <Route exact path="/">
-              <Cuisine />
-              <RecipeCarousel recipes={filteredRecipes} />
+              <Cuisine recipes={recipes} cuisine={cuisine} />
+              <RecipeCarousel recipes={recipes} />
               <Chef
                 chefData={chefData}
                 storyTitle={storyTitle}
@@ -70,8 +80,8 @@ function App() {
             <Route path="/recipe/:recipeTitle">
               <RecipePage isLoading={isLoading} recipes={recipes} />
             </Route>
-            <Route exact path="/recipes">
-              <List recipes={recipes} />
+            <Route path="/recipes/:cuisine">
+              <List recipes={filteredRecipes} />
             </Route>
           </Switch>
           <Footer />
@@ -80,6 +90,5 @@ function App() {
     </div>
   );
 }
-//
 
 export default App;
