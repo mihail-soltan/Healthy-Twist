@@ -20,7 +20,7 @@ export default function Item({ recipes }) {
                                 <Card.Title>{item.Title}</Card.Title>
                                 <Card.Text>{item.userStory}
                                 </Card.Text>
-                                <Link to="{`/${msg._id.$oid}`">
+                                <Link to={`/recipe/${item.id}`}>
                                 
                                     <Button variant="success">{item.id}</Button>
                                 
