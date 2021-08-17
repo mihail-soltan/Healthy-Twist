@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   margin: 0;
+  background-color: whitesmoke;
+  font-family: Ribbon;
 }
 
 .cuisine {
@@ -8,7 +10,6 @@
   align-items: center;
   justify-content: space-around;
   margin: 20px;
-
 }
 
 .App-logo {

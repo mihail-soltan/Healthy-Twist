@@ -11,9 +11,9 @@ export default function SearchBar({ search, setSearch }) {
                     value={search}
                     type="text"
                     placeholder="search"
-                    className="mr-2"
+                    className="mt-2"
                     aria-label="Search"
-                    style={{ width: "25vw", height: "5vh"}}
+                    style={{backgroundColor: "#999B9C", opacity: "0.7", color: "#F4F5F2"}}
                 />
         </Form>
     )

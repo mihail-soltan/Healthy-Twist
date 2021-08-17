@@ -2,14 +2,14 @@ import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 export default function Cuisine({ cuisine }) {
 
-    
+const colors = ["#CD8D80", "#A2ADA8", "#A27053", "#AD6D56", "#857585"]
 
     return (
         <>
             <div className="cuisine">
                 {cuisine.map((item) =>
                     <Link to={`/recipes/${item.name}`}>
-                        <Button size="sm" variant="primary">{item.name}</Button>{' '}
+                        <Button className="p-2" size="sm" style={{backgroundColor: "#CB8E73", border: "none", width: "12vw"}}>{item.name}</Button>{' '}
                     </Link>
                 )}
                 {/* <Link to="/recipes/Vegetarian">

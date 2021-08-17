@@ -4,10 +4,13 @@ import Footer from "./Footer";
 import RecipeCarousel from "./RecipeCarousel";
 import Chef from "./Chef";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import RecipePage from "./RecipePage";
 import Cuisine from "./Cuisine";
 import List from "./List";
+import Login from "./Login";
+import Signup from "./Signup";
+import PropagateLoader from 'react-spinners/PropagateLoader';
 
 function App() {
   const [chefData, setChefData] = useState([]);
@@ -48,6 +51,7 @@ function App() {
         console.log(res);
       });
   }, []);
+
   const filteredRecipes =
     recipes.length === 0
       ? recipes
@@ -62,7 +66,9 @@ function App() {
   return (
     <div className="App">
       {isLoading ? (
-        <h2>blabla</h2>
+        <div style={{marginTop: "50vh"}}>
+          <PropagateLoader size={40}/>
+          </div>
       ) : (
         <div>
           <Navbar recipes={recipes} search={search} setSearch={setSearch} />
@@ -83,8 +89,14 @@ function App() {
             <Route path="/recipes/:cuisine">
               <List recipes={filteredRecipes} />
             </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
           </Switch>
-          <Footer />
+         <Footer />
         </div>
       )}
     </div>
