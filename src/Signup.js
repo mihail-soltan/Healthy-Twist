@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
@@ -31,8 +32,9 @@ export default function Login() {
                             <Button className="submit-btn" style={{backgroundColor: "#3B3F39", color: "whitesmoke"}} type="submit">
                                 Sign Up
                             </Button>
-                            <Card.Link className="signup-link" href="/login">I already have an account...</Card.Link>
-                            
+                            <Link to="/login">
+                            <Card.Link className="signup-link" >I already have an account...</Card.Link>
+                            </Link>
                         </Form>
                     </Col>
                     <Col className="pic ">
