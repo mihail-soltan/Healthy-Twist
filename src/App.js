@@ -51,7 +51,7 @@ function App() {
         console.log(res);
       });
   }, []);
-  
+
   const filteredRecipes =
     recipes.length === 0
       ? recipes
@@ -66,7 +66,9 @@ function App() {
   return (
     <div className="App">
       {isLoading ? (
-        <PropagateLoader/>
+        <div style={{marginTop: "50vh"}}>
+          <PropagateLoader size={40}/>
+          </div>
       ) : (
         <div>
           <Navbar recipes={recipes} search={search} setSearch={setSearch} />
