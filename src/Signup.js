@@ -28,7 +28,7 @@ export default function Login() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Button className="submit-btn" style={{backgroundColor: "#e2af9e", color: "white"}} type="submit">
+                            <Button className="submit-btn" style={{backgroundColor: "#3B3F39", color: "whitesmoke"}} type="submit">
                                 Sign Up
                             </Button>
                             <Card.Link className="signup-link" href="/login">I already have an account...</Card.Link>

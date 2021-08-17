@@ -2,13 +2,14 @@
     width: 90vw;
     margin-top: 5vh;
     box-shadow: 3px 5px 5px 3px grey;
+    background-color: #F4F5F2;
 }
 .login{
     display: flex;
     justify-content: center;
     align-items: center;
     width:90vw;
-    height: 80vh;
+    height: 60vh;
 }
 .login-form, .submit-btn{
     width: 30vw; 
@@ -19,17 +20,17 @@
 }
 .pic {
     width: 90vw;
-    height: 80vh; 
-    background-image: url("https://cdn.pixabay.com/photo/2021/04/14/17/45/avocado-6179050_1280.jpg");
+    height: 60vh; 
+    background-image: url("https://cdn.pixabay.com/photo/2016/03/10/18/44/top-view-1248955_1280.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100% ;
+    background-size: 100% 100%;
 }
 .signup-link{
     text-decoration: none;
     color: black;
 }
 .signup-link:hover{
-    color: #e2af9e;
+    color: #AD6D56;
 }
 
 @media only screen and (max-width: 768px) {

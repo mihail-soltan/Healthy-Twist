@@ -1,9 +1,24 @@
 .navbar{
-    background-color: darkgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #3B3F39;
+}
+.search-link{
+    width: 100vw;
+    padding: 0 15vw;
+    border-top: 1.5px solid #999B9C;
+}
+
+.title{
+    width: 60vw;
+    font-size: 20px;
+    padding: 1vh 0;
+    color: #F4F5F2;
 }
 .nav-link, .nav-link:visited, .nav-link:active {
-    color: white;
+    color: #F4F5F2;
 }
 .nav-link:hover {
-    color: grey;
+    color: #999B9C;
 }
