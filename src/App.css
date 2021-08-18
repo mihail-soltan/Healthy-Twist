@@ -11,6 +11,11 @@
   justify-content: space-around;
   margin: 20px;
 }
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .App-logo {
   height: 40vmin;
@@ -62,6 +67,12 @@ p {
   text-align: left;
   max-width: 700px;
   
+}
+
+@media(max-width: 420px) {
+  .chef-story {
+    flex-direction: column;
+  }
 }
 
 @keyframes App-logo-spin {

@@ -11,6 +11,21 @@ import List from "./List";
 import Login from "./Login";
 import Signup from "./Signup";
 import PropagateLoader from 'react-spinners/PropagateLoader';
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+.App {
+  background-color: ${props => props.theme.mode === 'dark' ? '#111' : '#EEE'};
+  color: ${props => props.theme.mode === 'dark' ? '#00090B' : '#111'};
+}
+.container {
+  background-color: ${props => props.theme.mode === 'dark' ? '#111' : '#EEE'};
+  color: ${props => props.theme.mode === 'dark' ? '#00090B' : '#111'};
+}
+.chef-article {
+  color: ${props => props.theme.mode === 'dark' ? '#fbffff' : '#111'};
+}
+`
 
 function App() {
   const [chefData, setChefData] = useState([]);
@@ -21,6 +36,9 @@ function App() {
   const [search, setSearch] = useState("");
   const [cuisine, setCuisine] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState({mode: 'light'})
+  const [modeButton, setModeButton] = useState(false)
+
   useEffect(() => {
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`;
     const recipesAPI = `https://healthy-twist.herokuapp.com/posts`;
@@ -64,6 +82,9 @@ function App() {
         });
 
   return (
+    <ThemeProvider theme={theme}>
+      
+      <GlobalStyle setTheme={setTheme}/>
     <div className="App">
       {isLoading ? (
         <div style={{marginTop: "50vh"}}>
@@ -71,7 +92,7 @@ function App() {
           </div>
       ) : (
         <div>
-          <Navbar recipes={recipes} search={search} setSearch={setSearch} />
+          <Navbar recipes={recipes} search={search} setSearch={setSearch} theme={theme} setTheme={setTheme} modeButton={modeButton} setModeButton={setModeButton}/>
           <Switch>
             <Route exact path="/">
               <Cuisine recipes={recipes} cuisine={cuisine} />
@@ -100,6 +121,7 @@ function App() {
         </div>
       )}
     </div>
+    </ThemeProvider>
   );
 }
 

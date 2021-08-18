@@ -6,9 +6,8 @@ import "./Navbar.css";
 import SearchBar from "./SearchBar";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
-import ChangeMode from './ChangeMode';
 
-export default function Navbar({ recipes, search, setSearch }) {
+export default function Navbar({ recipes, search, setSearch, theme, setTheme }) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -31,7 +30,9 @@ export default function Navbar({ recipes, search, setSearch }) {
                                 <br />
                             </div>
                         </Offcanvas.Body>
-                        <ChangeMode />
+                        {/* <BootstrapSwitchButton checked={false} onstyle="dark" offstyle="light" style="border"/> */}
+                        <button onClick={e=>setTheme(theme.mode === 'dark' ? {mode:'light'} : {mode:'dark'})}>
+          {theme.mode === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</button>
                     </Offcanvas>
                 </Nav.Link>
             </Nav.Item>

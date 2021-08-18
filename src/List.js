@@ -10,7 +10,7 @@ export default function Item({ recipes }) {
     return (
         <>
 
-                <Container>
+                <Container bsPrefix="container">
                     <Row>
                         
             {recipes.filter((food)=> food.cuisine.name === cuisine).map((item) =>
