@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   margin: 0;
+<<<<<<< HEAD
   color: #333;
   display: flex;
   justify-content: center;
@@ -14,12 +15,21 @@
   justify-content: center;
   height: 10%;
   transition: background-color 0.25s ease-in-out;
+=======
+  background-color: whitesmoke;
+  font-family: Ribbon;
+>>>>>>> test
 }
 .cuisine {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 20px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -70,6 +80,12 @@ p {
 .article-text {
   /* text-align: left; */
   max-width: 700px;
+}
+
+@media(max-width: 420px) {
+  .chef-story {
+    flex-direction: column;
+  }
 }
 
 @keyframes App-logo-spin {

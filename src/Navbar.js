@@ -4,6 +4,7 @@ import { BoxArrowInRight, List } from "react-bootstrap-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css";
 import SearchBar from "./SearchBar";
+<<<<<<< HEAD
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
@@ -61,4 +62,55 @@ export default function Navbar({ recipes, search, setSearch }) {
       </Link>
     </Nav>
   );
+=======
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
+
+export default function Navbar({ recipes, search, setSearch, theme, setTheme }) {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return (
+
+        <Nav className="navbar">
+            <Nav.Item className="hamburgerMenu">
+                <Nav.Link className="nav-link">
+                    <List className="m-2" size={30} onClick={handleShow} />
+                    <Offcanvas show={show} onHide={handleClose}
+                        bg="dark">
+                        <Offcanvas.Header closeButton>
+                            <Offcanvas.Title>Welcome</Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                            <div className="d-grid gap-2">
+                                <Button variant="secondary" size="sm">Most Popular</Button>
+                                <Button variant="secondary" size="sm">Holiday Special</Button>
+                                <br />
+                            </div>
+                        </Offcanvas.Body>
+                        {/* <BootstrapSwitchButton checked={false} onstyle="dark" offstyle="light" style="border"/> */}
+                        <button onClick={e=>setTheme(theme.mode === 'dark' ? {mode:'light'} : {mode:'dark'})}>
+          {theme.mode === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}</button>
+                    </Offcanvas>
+                </Nav.Link>
+            </Nav.Item>
+            <div className="title">
+                <div style={{fontWeight: "bold"}}>Healthy Twist</div>
+                <p>your favourite food blog</p>
+            </div>
+
+            <Nav.Item>
+                <Nav.Link className="nav-link" href="/login">
+                    Sign In
+                    <BoxArrowInRight size={25} />
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="search-link">
+                <Nav.Link className="nav-link"><SearchBar search={search} setSearch={setSearch} /></Nav.Link>
+            </Nav.Item>
+        </Nav>
+
+    )
+>>>>>>> test
 }

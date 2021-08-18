@@ -1,39 +1,35 @@
-import Carousel from "react-bootstrap/Carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-export default function RecipeCarousel({ recipes }) {
-  const [index, setIndex] = useState(1);
-  const [recipesPerPage] = useState(3);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const handleSelect = (selectedIndex, pageNumber) => {
-    setIndex(selectedIndex);
-    setCurrentPage(index);
-    console.log(index);
+export default function RecipeCarousel({ recipes, recipePic }) {
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
   };
 
-  const indexOfLastRecipe = currentPage * recipesPerPage;
-  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-  const pageNumbers = useState([]);
-
-  const totalRecipes = recipes.length;
-  for (let i = 1; i < Math.ceil(totalRecipes / recipesPerPage); i++) {
-    pageNumbers.push(i);
-  }
   return (
-    <Carousel
-      activeIndex={index}
-      onSelect={handleSelect}
-      variant="dark"
-      recipesPerPage={recipesPerPage}
-      totalRecipes={recipes.length}
-    >
-      {pageNumbers.map((number) => (
-        <Carousel.Item key={number}>
+    <Carousel infinite={true} draggable={true} responsive={responsive}>
+      {recipes.length ? (
+        recipes.map((item) => (
           <div className="recipes">
+<<<<<<< HEAD
             {currentRecipes.map((item) => (
               <Card style={{ width: "20em" }}>
                 <Card.Img
@@ -50,9 +46,23 @@ export default function RecipeCarousel({ recipes }) {
                 </Card.Body>
               </Card>
             ))}
+=======
+            <Card style={{ width: "18em" }}>
+              <Card.Img variant="top" src={item.Picture.url} />
+              <Card.Body>
+                <Card.Title>{item.Title}</Card.Title>
+                <Card.Text>{item.userStory}</Card.Text>
+                <Link to={`/recipe/${item.id}`}>
+                  <Button variant="outline-success">Go somewhere</Button>
+                </Link>
+              </Card.Body>
+            </Card>
+>>>>>>> test
           </div>
-        </Carousel.Item>
-      ))}
+        ))
+      ) : (
+        <h1>Loading</h1>
+      )}
     </Carousel>
   );
 }
