@@ -8,21 +8,17 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import marked from "marked";
+import "./RecipePage.css";
 
 const RecipePage = ({ isLoading, recipes }) => {
   const { recipeTitle } = useParams();
 
-  console.log(recipeTitle);
-
-  console.log(recipes);
-  const displayRecipe = Object.values(recipes).filter(
-    (recipe) => recipe.sys.id === recipeTitle
-  );
+  const displayRecipe = recipes.filter((recipe) => recipe.id === recipeTitle);
   const [theRecipe] = displayRecipe;
-  console.log(theRecipe.fields.title);
 
-  const body = marked(theRecipe.fields.recipe2 || "");
-
+  const body = marked(theRecipe.recipe || "");
+  const ingredientArray = theRecipe.ingredients.split("-");
+  console.log(recipes);
   //
   return isLoading ? (
     <h1>The data is on its way</h1>
@@ -31,16 +27,16 @@ const RecipePage = ({ isLoading, recipes }) => {
       <Accordion defaultActiveKey="1" flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            <h2>{theRecipe.fields.title}</h2>
+            <h2>{theRecipe.Title}</h2>
           </Accordion.Header>
           <Accordion.Body>
-            Posted on: {theRecipe.fields.publishedDate}
+            Posted on: {theRecipe.published_at}
             <br />
-            {theRecipe.fields.userStroyAboutRecepie}
+            {theRecipe.userStory}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <Image src="//images.ctfassets.net/6sqp9xuzzgbv/5iNvHTm60kc0uO9hB4gclM/0602b413eb46218268a6468de70d293c/Gordon-Ramsay-1.jpg?w=750&h=750" />
+      <Image className="photo" src={theRecipe.Picture.url} />
       <br />
       <br />
       <Container>
@@ -56,7 +52,7 @@ const RecipePage = ({ isLoading, recipes }) => {
               >
                 Ingredients
               </ListGroup.Item>
-              {theRecipe.fields.ingredients.map((item) => (
+              {ingredientArray.map((item) => (
                 <ListGroup.Item as="li" key={Math.random(Math.floor) * 100}>
                   {item}
                 </ListGroup.Item>

@@ -41,10 +41,10 @@ export default function RecipeCarousel({ recipes }) {
                   src="https://www.thewholesomedish.com/wp-content/uploads/2019/06/The-Best-Classic-Tacos-550.jpg"
                 />
                 <Card.Body>
-                  <Card.Title>{item.fields.title}</Card.Title>
-                  <Card.Text>{item.fields.userStroyAboutRecepie}</Card.Text>
+                  <Card.Title>{item.Title}</Card.Title>
+                  <Card.Text>{item.userStory}</Card.Text>
 
-                  <Link to={`/recipe/${item.sys.id}`}>
+                  <Link to={`/recipe/${item.id}`}>
                     <Button variant="success">Go somewhere</Button>
                   </Link>
                 </Card.Body>
