@@ -12,7 +12,7 @@ import "./RecipePage.css";
 
 const RecipePage = ({ isLoading, recipes }) => {
   const { recipeTitle } = useParams();
-
+  console.log(recipes);
   const displayRecipe = recipes.filter((recipe) => recipe.id === recipeTitle);
   const [theRecipe] = displayRecipe;
 
