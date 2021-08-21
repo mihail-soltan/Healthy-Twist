@@ -10,7 +10,7 @@ export default function Item({ recipes }) {
     return (
         <>
 
-                <div className="button-list" >
+                <div className="recipe-list" >
                     {/* <Row> */}
                         
             {recipes.filter((food)=> food.cuisine.name === cuisine).map((item) =>

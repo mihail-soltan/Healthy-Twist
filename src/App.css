@@ -56,10 +56,9 @@
   margin: 10px;
   max-width: 80vw;
 }
-.button-list {
+.recipe-list {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 #story {
   display: flex;
