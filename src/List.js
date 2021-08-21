@@ -10,8 +10,8 @@ export default function Item({ recipes }) {
     return (
         <>
 
-                <Container bsPrefix="container">
-                    <Row>
+                <div className="button-list" >
+                    {/* <Row> */}
                         
             {recipes.filter((food)=> food.cuisine.name === cuisine).map((item) =>
                         <Card style={{ width: '20em', margin: '5px' }} key={item.id}>
@@ -22,14 +22,14 @@ export default function Item({ recipes }) {
                                 </Card.Text>
                                 <Link to={`/recipe/${item.id}`}>
                                 
-                                    <Button variant="success">{item.id}</Button>
+                                    <Button variant="success">{item.Title}</Button>
                                 
                                 </Link>
                             </Card.Body>
                         </Card>
                     )}
-                    </Row>
-                </Container>
+                    {/* </Row> */}
+                </div>
 
 
     </>

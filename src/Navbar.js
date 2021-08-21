@@ -41,7 +41,6 @@ export default function Navbar({
                 <Button variant="secondary" size="sm">
                   <Link to="/addrecipe">Add Recipe</Link>
                 </Button>
-                <br />
               </div>
             </Offcanvas.Body>
             {/* <BootstrapSwitchButton checked={false} onstyle="dark" offstyle="light" style="border"/> */}
@@ -61,20 +60,12 @@ export default function Navbar({
       </Nav.Item>
       <div className="title">
         <div style={{ fontWeight: "bold" }}>Healthy Twist</div>
-        <p>your favourite food blog</p>
+        <p>
+          “A recipe has no soul. You, as the cook, must bring soul to the
+          recipe.” – Thomas Keller
+        </p>
       </div>
 
-      <Nav.Item>
-        <Nav.Link href="/">
-          {/* <i class="bi bi-house-door"></i> */}
-          <Icon
-            className="home-icon"
-            icon="bi:house-door-fill"
-            width="25"
-            height="25"
-          />
-        </Nav.Link>
-      </Nav.Item>
       <Nav.Item>
         <Nav.Link className="nav-link" href="/login">
           Sign In
@@ -82,6 +73,16 @@ export default function Navbar({
         </Nav.Link>
       </Nav.Item>
       <Nav.Item className="search-link">
+        <NavLink classname="homeButton" to="/">
+          <Button variant="outline-light">
+            <Icon
+              className="home-icon"
+              icon="bi:house-door-fill"
+              width="25"
+              height="25"
+            />
+          </Button>
+        </NavLink>
         <Nav.Link className="nav-link">
           <SearchBar search={search} setSearch={setSearch} />
         </Nav.Link>

@@ -1,13 +1,17 @@
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: #3b3f39;
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #064420;
 }
-.search-link {
-  width: 100vw;
-  padding: 0 15vw;
-  border-top: 1.5px solid #999b9c;
+.search-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 0 15vw;
+    border-top: 1.5px solid #999B9C;
 }
 
 .title {

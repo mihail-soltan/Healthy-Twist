@@ -1,4 +1,3 @@
-
 import ReactTextCollapse from "react-text-collapse"
 import Markdown from 'markdown-to-jsx';
 const TEXT_COLLAPSE_OPTIONS = {
@@ -16,11 +15,12 @@ const TEXT_COLLAPSE_OPTIONS = {
 const Chef = ({ chefData, storyTitle, chefPic, story }) => {
 
     if (chefData.length) {
-        return <>
+        return (
+        <div id="story">
             <div className="chef-article">
                 <h1>{storyTitle}</h1>
                 <article className="chef-story">
-                    <span><img src={chefPic}></img>
+                    <span><img className="chefPic" src={chefPic}></img>
                     </span>
                     <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
                         <Markdown>
@@ -29,7 +29,9 @@ const Chef = ({ chefData, storyTitle, chefPic, story }) => {
                     </ReactTextCollapse>
                 </article>
             </div>
-        </>
+        
+        </div>
+        )
     } else {
         return <>
             <h1>Loading</h1>
