@@ -47,28 +47,20 @@ function App() {
   useEffect(() => {
     const contentful = `https://cdn.contentful.com/spaces/6sqp9xuzzgbv/environments/master/entries?access_token=${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}&content_type=chefStory`;
     const recipesAPI = `https://healthy-twist.herokuapp.com/posts`;
-<<<<<<< HEAD
-=======
     const cuisineAPI = `https://healthy-twist.herokuapp.com/cuisines`;
 
->>>>>>> test
-    fetch(contentful)
-      .then((res) => res.json())
-      .then((result) => {
-        setChefData(result.items);
-        setStoryTitle(result.items[0].fields.chefStoryTitle);
-        setChefPic(`${result.includes.Asset[0].fields.file.url}?w=500&h=500`);
-        setStory(result.items[0].fields.chefStoryText);
-      });
+    // fetch(contentful)
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     setChefData(result.items);
+    //     setStoryTitle(result.items[0].fields.chefStoryTitle);
+    //     setChefPic(`${result.includes.Asset[0].fields.file.url}?w=500&h=500`);
+    //     setStory(result.items[0].fields.chefStoryText);
+    //   });
 
     fetch(recipesAPI)
       .then((res) => res.json())
       .then((res) => {
-<<<<<<< HEAD
-        console.log(res);
-        setRecipes(res);
-        setIsLoading(!isLoading);
-=======
         setRecipes(res);
         console.log(res[0].cuisine.name);
       });
@@ -80,7 +72,6 @@ function App() {
         setIsLoading(false);
 
         console.log(res);
->>>>>>> test
       });
   }, []);
 
@@ -88,12 +79,8 @@ function App() {
     recipes.length === 0
       ? recipes
       : recipes.filter((post) => {
-<<<<<<< HEAD
-          const index = post.Title.toLowerCase() + post.userStory.toLowerCase();
-=======
           const index = post.Title.toLowerCase();
           // post.fields.userStroyAboutRecepie.toLowerCase();
->>>>>>> test
           // console.log(index)
           return index.includes(search.toLowerCase());
           console.log(post.Title);
@@ -103,33 +90,17 @@ function App() {
   console.log(darkMode);
 
   return (
-<<<<<<< HEAD
-    <div className={darkMode ? "dark-mode" : "App"}>
-=======
     <ThemeProvider theme={theme}>
       
       <GlobalStyle setTheme={setTheme}/>
     <div className="App">
->>>>>>> test
       {isLoading ? (
         <div style={{marginTop: "50vh"}}>
           <PropagateLoader size={40}/>
           </div>
       ) : (
         <div>
-<<<<<<< HEAD
-          <Navbar recipes={recipes} search={search} setSearch={setSearch} />
-          <Form>
-            <Form.Check
-              type="switch"
-              id="custom-switch"
-              label="Change Mode"
-              onChange={handleToggle}
-            />
-          </Form>
-=======
           <Navbar recipes={recipes} search={search} setSearch={setSearch} theme={theme} setTheme={setTheme} modeButton={modeButton} setModeButton={setModeButton}/>
->>>>>>> test
           <Switch>
             <Route exact path="/">
               <Cuisine recipes={recipes} cuisine={cuisine} />

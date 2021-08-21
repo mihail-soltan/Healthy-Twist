@@ -29,24 +29,6 @@ export default function RecipeCarousel({ recipes, recipePic }) {
       {recipes.length ? (
         recipes.map((item) => (
           <div className="recipes">
-<<<<<<< HEAD
-            {currentRecipes.map((item) => (
-              <Card style={{ width: "20em" }}>
-                <Card.Img
-                  variant="top"
-                  src="https://www.thewholesomedish.com/wp-content/uploads/2019/06/The-Best-Classic-Tacos-550.jpg"
-                />
-                <Card.Body>
-                  <Card.Title>{item.Title}</Card.Title>
-                  <Card.Text>{item.userStory}</Card.Text>
-
-                  <Link to={`/recipe/${item.id}`}>
-                    <Button variant="success">Go somewhere</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
-            ))}
-=======
             <Card style={{ width: "18em" }}>
               <Card.Img variant="top" src={item.Picture.url} />
               <Card.Body>
@@ -57,7 +39,6 @@ export default function RecipeCarousel({ recipes, recipePic }) {
                 </Link>
               </Card.Body>
             </Card>
->>>>>>> test
           </div>
         ))
       ) : (

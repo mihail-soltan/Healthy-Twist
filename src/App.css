@@ -1,24 +1,8 @@
 .App {
   text-align: center;
   margin: 0;
-<<<<<<< HEAD
-  color: #333;
-  display: flex;
-  justify-content: center;
-  height: 10%;
-  transition: background-color 0.25s ease-in-out;
-}
-.dark-mode {
-  background-color: rgb(49, 49, 49);
-  color: #999;
-  display: flex;
-  justify-content: center;
-  height: 10%;
-  transition: background-color 0.25s ease-in-out;
-=======
   background-color: whitesmoke;
   font-family: Ribbon;
->>>>>>> test
 }
 .cuisine {
   display: flex;
@@ -82,7 +66,7 @@ p {
   max-width: 700px;
 }
 
-@media(max-width: 420px) {
+@media (max-width: 420px) {
   .chef-story {
     flex-direction: column;
   }
