@@ -35,7 +35,7 @@ export default function RecipeCarousel({ recipes, recipePic }) {
                 <Card.Title>{item.Title}</Card.Title>
                 <Card.Text>{item.userStory}</Card.Text>
                 <Link to={`/recipe/${item.id}`}>
-                  <Button variant="outline-success">Go somewhere</Button>
+                  <Button variant="outline-success">Read Recipe</Button>
                 </Link>
               </Card.Body>
             </Card>

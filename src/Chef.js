@@ -5,9 +5,9 @@ const TEXT_COLLAPSE_OPTIONS = {
     collapseText: '... show more', // text to show when collapsed
     expandText: 'show less', // text to show when expanded
     minHeight: 100, // component height when closed
-    maxHeight: 850, // expanded to
+    maxHeight: 1000, // expanded to
     textStyle: { // pass the css for the collapseText and expandText here
-        color: "blue",
+        color: "#064420",
         fontSize: "20px"
     }
 }

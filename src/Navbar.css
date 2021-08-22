@@ -13,12 +13,28 @@
     padding: 0 15vw;
     border-top: 1.5px solid #999B9C;
 }
+.addRecipe {
+    text-decoration: none;
+    color: white;
+}
+
+.addRecipe:hover {
+    text-decoration: none;
+    color: white;
+}
 
 .title {
+  display: flex;
+  flex-direction: column;
   width: 60vw;
   font-size: 20px;
   padding: 1vh 0;
   color: #f4f5f2;
+  
+}
+.darkmode {
+  margin: 15px;
+  padding: 5px;
 }
 .nav-link,
 .nav-link:visited,
@@ -36,4 +52,14 @@
 
 .home-icon:hover {
   color: #999b9c;
+}
+@media(max-width: 450px){
+
+  .title{
+    width: 30vw;
+  }
+  .quote{
+    display:none;
+
+  }
 }
