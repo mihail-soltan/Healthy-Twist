@@ -5,6 +5,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { InputGroup } from "react-bootstrap";
 
 const AddRecipe = () => {
   const [recipeTitle, setRecipeTitle] = useState("");
@@ -56,43 +57,46 @@ const AddRecipe = () => {
     <div className="addRecipePage">
       <Container>
         <Row>
-          <h1>Share a Recipe </h1>
-          <h5>Share your recipe with us</h5>
+          <h1>Share Your Recipe </h1>
           <Form onSubmit={handleOnSubmit}>
-            <label>Title</label>
-            <input
-              type="text"
-              placeHolder="Enter Title"
-              value={recipeTitle}
-              onChange={handleTitleChange}
-            ></input>
-            <br />
-            <br />
-            <label>Published</label>
+            <InputGroup className="mb-3">
+              <InputGroup.Text
+                id="inputGroup-sizing-default"
+                onChange={handleTitleChange}
+                as="title"
+              >
+                Title
+              </InputGroup.Text>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
+            </InputGroup>
+            {/* <label>Published</label> */}
             {/* Need to add Calendar for Date */}
-            <input
+            {/* <input
               type="date"
               value={publishedDate}
               onChange={handlepublishedDateChange}
             ></input>
             <input type="time" value="time"></input>
-            <br />
-            <label>UserStory</label>
-            <br />
-            <textarea
-              rows="4"
-              cols="50"
-              value={userStory}
-              form="usrform"
-              onChange={handleuserStoryChange}
+            <br /> */}
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
             >
-              Enter UserStory here...
-            </textarea>
+              <Form.Label></Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Tell us a story about your recipe"
+              />
+            </Form.Group>
             <br />
-            <label for="cuisine">Cuisine Type</label>
+            <Form.Label>Cuisine Type</Form.Label>
             <br />
-            <select
-              id="cuisine"
+            <Form.Select
+              aria-label="Default select example"
               value={cuisineType}
               onChange={handlecuisineTypeChange}
             >
@@ -102,41 +106,44 @@ const AddRecipe = () => {
               <option value="vegetarian">Vegetarian</option>
               <option value="mexican">Mexican</option>
               <option value="asian">Asian</option>
-            </select>
+            </Form.Select>
             <br />
-            <label>PrepTime</label>
-            <br />
-            <input
-              type="number"
-              placeHolder="1"
-              value={prepTime}
-              onChange={handleprepTimeChange}
-            ></input>
-            <br />
-            <label>Ingredients</label>
-            <br />
-            <textarea
-              rows="4"
-              cols="50"
-              value={ingredients}
-              onChange={handleingredientsChange}
-              form="usrform"
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
             >
-              List out your Ingredients here...
-            </textarea>
+              <Form.Label>Prep Time</Form.Label>
+              <Form.Control type="number" onChange={handleprepTimeChange}/>
+            </Form.Group>
             <br />
-            <label>Recipe</label>
-            <br />
-            <textarea
-              rows="4"
-              cols="50"
-              value={recipeText}
-              onChange={handlerecipeTextChange}
-              form="usrform"
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
             >
-              Enter the Recipe here...
-            </textarea>
+              <Form.Label>Ingredients</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                
+                value={ingredients}
+                onChange={handleingredientsChange}
+              />
+            </Form.Group>
             <br />
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Recipe</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                
+                value={recipeText}
+                onChange={handlerecipeTextChange}
+              />
+            </Form.Group>
+           
             <Button
               className="submit-btn"
               style={{ backgroundColor: "#3B3F39", color: "whitesmoke" }}

@@ -1,4 +1,3 @@
-
 import ReactTextCollapse from "react-text-collapse"
 import Markdown from 'markdown-to-jsx';
 const TEXT_COLLAPSE_OPTIONS = {
@@ -6,9 +5,9 @@ const TEXT_COLLAPSE_OPTIONS = {
     collapseText: '... show more', // text to show when collapsed
     expandText: 'show less', // text to show when expanded
     minHeight: 100, // component height when closed
-    maxHeight: 850, // expanded to
+    maxHeight: 1000, // expanded to
     textStyle: { // pass the css for the collapseText and expandText here
-        color: "blue",
+        color: "#064420",
         fontSize: "20px"
     }
 }
@@ -16,11 +15,12 @@ const TEXT_COLLAPSE_OPTIONS = {
 const Chef = ({ chefData, storyTitle, chefPic, story }) => {
 
     if (chefData.length) {
-        return <>
+        return (
+        <div id="story">
             <div className="chef-article">
                 <h1>{storyTitle}</h1>
                 <article className="chef-story">
-                    <span><img src={chefPic}></img>
+                    <span><img className="chefPic" src={chefPic}></img>
                     </span>
                     <ReactTextCollapse options={TEXT_COLLAPSE_OPTIONS}>
                         <Markdown>
@@ -29,7 +29,9 @@ const Chef = ({ chefData, storyTitle, chefPic, story }) => {
                     </ReactTextCollapse>
                 </article>
             </div>
-        </>
+        
+        </div>
+        )
     } else {
         return <>
             <h1>Loading</h1>

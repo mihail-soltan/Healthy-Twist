@@ -1,4 +1,7 @@
 .addRecipePage {
-  text-align: left;
-  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+   /* text-align: left; */
+  /* margin-left: 100px; */
 }
+
