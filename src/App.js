@@ -36,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
   color: ${props => props.theme.mode === 'dark' ? '#00090B' : '#111'};
 
 }
+addRecipePage {
+  background-color: ${props => props.theme.mode === 'dark' ? '#121212' : '#064420'};
+  color: ${props => props.theme.mode === 'dark' ? '#00090B' : '#111'};
+}
 `
 
 function App() {
