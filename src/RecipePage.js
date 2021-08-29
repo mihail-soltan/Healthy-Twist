@@ -10,6 +10,7 @@ import Image from "react-bootstrap/Image";
 import marked from "marked";
 import Markdown from "markdown-to-jsx";
 import "./RecipePage.css";
+import CommentSection from "./CommentSection";
 
 const RecipePage = ({ isLoading, recipes }) => {
   const { recipeTitle } = useParams();
@@ -24,7 +25,7 @@ const RecipePage = ({ isLoading, recipes }) => {
   return isLoading ? (
     <h1>The data is on its way</h1>
   ) : (
-    < >
+    <>
       <Accordion defaultActiveKey="1" flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -38,10 +39,10 @@ const RecipePage = ({ isLoading, recipes }) => {
         </Accordion.Item>
       </Accordion>
       <Container fluid="md">
-        <Row className="justify-content-md-center m-4" as="recipeRow" >
+        <Row className="justify-content-md-center m-4" as="recipeRow">
           <Image className="photo" src={theRecipe.Picture.url} />
-          </Row>
-          <Row className="ingredients">
+        </Row>
+        <Row className="ingredients">
           <Col>
             <ListGroup as="ul" className="recipe-instructions">
               <ListGroup.Item
@@ -62,6 +63,7 @@ const RecipePage = ({ isLoading, recipes }) => {
             <Markdown className="recipe-text">{theRecipe.recipe}</Markdown>
           </Col>
         </Row>
+      <CommentSection />
       </Container>
     </>
   );
