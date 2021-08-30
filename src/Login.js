@@ -11,7 +11,7 @@ export default function Login() {
 
     return (
         <div>
-            <Container >
+            <Container fluid className="login-container">
                 <Row className="g-0">
                     <Col className="login" >
                         <Form className="login-form" >
@@ -32,7 +32,8 @@ export default function Login() {
                             </Link>
                         </Form>
                     </Col>
-                    <Col className="pic ">
+                    <Col className="pic">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/10/18/44/top-view-1248955_1280.jpg" style={{width: "100%"}}></img>
                     </Col>
                 </Row>
             </Container>

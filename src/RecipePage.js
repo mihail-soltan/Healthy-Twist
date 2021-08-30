@@ -8,7 +8,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import marked from "marked";
+import Markdown from "markdown-to-jsx";
 import "./RecipePage.css";
+import CommentSection from "./CommentSection";
 
 const RecipePage = ({ isLoading, recipes }) => {
   const { recipeTitle } = useParams();
@@ -26,7 +28,7 @@ const RecipePage = ({ isLoading, recipes }) => {
   return isLoading ? (
     <h1>The data is on its way</h1>
   ) : (
-    <div>
+    <>
       <Accordion defaultActiveKey="1" flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -39,19 +41,17 @@ const RecipePage = ({ isLoading, recipes }) => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <Image className="photo" src={theRecipe.Picture.url} />
-      <br />
-      <br />
-      <Container>
-        <Row>
+      <Container fluid="md">
+        <Row className="justify-content-md-center m-4" as="recipeRow">
+          <Image className="photo" src={theRecipe.Picture.url} />
+        </Row>
+        <Row className="ingredients">
           <Col>
-            {" "}
-            <ListGroup as="ul" style={{ width: "20em" }}>
+            <ListGroup as="ul" className="recipe-instructions">
               <ListGroup.Item
                 as="li"
                 className="listgroup-heading"
-                active
-                style={{ backgroundColor: "darkgreen" }}
+                style={{ backgroundColor: "#064420", color: "ghostwhite" }}
               >
                 Ingredients
               </ListGroup.Item>
@@ -63,12 +63,12 @@ const RecipePage = ({ isLoading, recipes }) => {
             </ListGroup>
           </Col>
           <Col>
-            {/* <article dangerouslySetInnerHTML={{ __html: body }}></article> */}
-            <p>{recipeArray}</p>
+            <Markdown className="recipe-text">{theRecipe.recipe}</Markdown>
           </Col>
         </Row>
+        <CommentSection />
       </Container>
-    </div>
+    </>
   );
 };
 

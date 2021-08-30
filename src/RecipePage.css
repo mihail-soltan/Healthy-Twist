@@ -1,20 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 h2.accordian-header::after {
-  color: darkgreen !important;
+  color: #064420 !important;
   background-color: ghostwhite;
 }
 h2 {
   display: block;
   text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+/* align-self: center; */
+.stars {
+  justify-content: center;
+}
+.ingredients {
+  /* width:80%; */
+  /* flex-direction: column; */
+  justify-content: center;
+}
+.recipe-text {
+  padding: 25px;
+  text-align: justify;
+  font-size: 18px;
+  font-family: "Lato", sans-serif;
+}
+.photo {
+  height: 50%;
+  width: 50%;
 }
 
-.photo {
-  height: 500px;
-  width: 500px;
+.recipe-box {
+  justify-self: center;
 }
 @media (max-width: 420px) {
   .photo {
     height: 100%;
     width: 100%;
+  }
+  .recipe-instructions {
+    width: inherit;
+    padding: 20px 0px 20px 0px;
+    min-width: 0;
+  }
+}
+@media (max-width: 770px) {
+  .photo {
+    height: 100%;
+    width: 100%;
+  }
+  .recipe-instructions {
+    width: inherit;
+    padding: 20px 0px 20px 0px;
+    min-width: 0;
+  }
+  .ingredients {
+    display: flex;
+    flex-direction: column;
   }
 }
 /* .accordian-header  */
