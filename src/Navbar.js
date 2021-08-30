@@ -37,6 +37,9 @@ export default function Navbar({
                 <Button variant="secondary" size="sm">
                   Holiday Special
                 </Button>
+                <Button variant="secondary" size="sm">
+                  <Link to="/whattocook">What do I cook?</Link>
+                </Button>
                 <br />
                 <Button variant="secondary" size="sm">
                   <Link to="/addrecipe">Add Recipe</Link>

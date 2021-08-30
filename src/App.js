@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import RecipeCarousel from "./RecipeCarousel";
 import Chef from "./Chef";
+import WhatToCook from "./WhatToCook";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import RecipePage from "./RecipePage";
@@ -112,7 +113,7 @@ function App() {
             />
             <Switch>
               <Route exact path="/">
-                <Cuisine recipes={recipes} cuisine={cuisine} />
+                {/* <Cuisine recipes={recipes} cuisine={cuisine} /> */}
                 <RecipeCarousel recipes={recipes} />
                 <Chef
                   chefData={chefData}
@@ -135,6 +136,9 @@ function App() {
               </Route>
               <Route path="/addrecipe">
                 <AddRecipe />
+              </Route>
+              <Route path="/whattocook">
+                <WhatToCook />
               </Route>
             </Switch>
             <Footer />

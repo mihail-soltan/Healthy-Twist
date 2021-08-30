@@ -1,0 +1,14 @@
+.cardBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.findrecipe {
+  margin-top: 15px;
+}
+@media (max-width: 420px) {
+  .cardBody {
+    height: 100%;
+    width: 100%;
+  }
+}
