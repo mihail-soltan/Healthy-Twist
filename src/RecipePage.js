@@ -20,7 +20,10 @@ const RecipePage = ({ isLoading, recipes }) => {
 
   const body = marked(theRecipe.recipe || "");
   const ingredientArray = theRecipe.ingredients.split("-");
+  const recipeArray = theRecipe.recipe.split(".");
   console.log(recipes);
+  console.log(recipeArray);
+
   //
   return isLoading ? (
     <h1>The data is on its way</h1>
@@ -63,7 +66,7 @@ const RecipePage = ({ isLoading, recipes }) => {
             <Markdown className="recipe-text">{theRecipe.recipe}</Markdown>
           </Col>
         </Row>
-      <CommentSection />
+        <CommentSection />
       </Container>
     </>
   );

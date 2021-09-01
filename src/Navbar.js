@@ -37,6 +37,11 @@ export default function Navbar({
                 <Button variant="secondary" size="sm">
                   Holiday Special
                 </Button>
+                <Button variant="secondary" size="sm">
+                  <NavLink className="whattocook" to="/whattocook">
+                    What do I cook?
+                  </NavLink>
+                </Button>
                 <br />
                 <Button variant="secondary" size="sm">
                   <NavLink className="addRecipe" to="/addrecipe">

@@ -1,26 +1,28 @@
-.navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #064420;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #064420;
 }
-.search-link{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    padding: 0 15vw;
-    border-top: 1.5px solid #999B9C;
+.search-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 0 15vw;
+  border-top: 1.5px solid #999b9c;
 }
-.addRecipe {
-    text-decoration: none;
-    color: white;
+.addRecipe,
+.whattocook {
+  text-decoration: none;
+  color: white;
 }
 
-.addRecipe:hover {
-    text-decoration: none;
-    color: white;
+.addRecipe,
+.whattocook:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .title {
@@ -30,7 +32,6 @@
   font-size: 20px;
   padding: 1vh 0;
   color: #f4f5f2;
-  
 }
 .darkmode {
   margin: 15px;
@@ -53,13 +54,11 @@
 .home-icon:hover {
   color: #999b9c;
 }
-@media(max-width: 450px){
-
-  .title{
+@media (max-width: 450px) {
+  .title {
     width: 30vw;
   }
-  .quote{
-    display:none;
-
+  .quote {
+    display: none;
   }
 }
